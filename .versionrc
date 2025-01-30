@@ -1,0 +1,12 @@
+{
+  "bumpFiles": [
+    {
+      "filename": "terraform/VERSION.txt",
+      "type": "plain-text"
+    },
+    {
+      "filename": "module/VERSION.txt",
+      "type": "plain-text"
+    }
+  ]
+}

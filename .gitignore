@@ -1,0 +1,8 @@
+.DS_Store
+.terraform
+.vscode
+test-output.log
+TEST-terraform.xml
+function/node_modules
+*tfstate*
+function/dist
