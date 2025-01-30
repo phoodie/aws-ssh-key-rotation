@@ -10,7 +10,6 @@ resource "aws_lambda_function" "this" {
   package_type  = "Image"
   image_uri     = "${local.aws_account_id}.dkr.ecr.ap-southeast-2.amazonaws.com/aws-ssh-key-rotation:${local.version}"
   timeout       = 300
-  ## try excluding this when deploy in sharedservices
   vpc_config {
     security_group_ids = [aws_security_group.lambda_sg.id]
     subnet_ids         = data.aws_subnets.private.ids
@@ -18,9 +17,6 @@ resource "aws_lambda_function" "this" {
   ##
   environment {
     variables = {
-      TAGNAME        = var.target_tag_key
-      TAGVALUE       = var.target_tag_value
-      USERNAME       = var.ssh_username
       SNSARN         = local.sns_topic_arn
       SSMROLE       = aws_iam_role.ssm_notification.arn
       MODULE_VERSION = local.version
